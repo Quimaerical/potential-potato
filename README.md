@@ -1,2 +1,2 @@
-# potential-potato
+# LIBRERIAS PERSONALES
 lib
