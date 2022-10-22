@@ -38,13 +38,13 @@ int longpila(pila test);
 
 void crear_pila (pila test){
 	//asigno el apuntador de la cabecera de la pila a NULL y defino el tamaño a 0
-	pila.prim = NULL
-	pila.tamano = 0
+	test.prim = NULL
+	test.tamano = 0
 }
 
 int es_vacia (pila test){
 	//si el tamaño de la pila es igual a 0 retorna 1, retorna 0 si no
-	if (pila.tamano == 0){
+	if (test.tamano == 0){
 		return (1);
 	}else{
 		return (0);
@@ -54,31 +54,31 @@ int es_vacia (pila test){
 void apilar (int val, pila test){
 	//declaro un apuntador p para no perder la ubicacion del primer nodo
 	struct node *p;
-	p = pila.prim;
+	p = test.prim;
 	//le asigno al apuntador en pila.prim un nodo vacio
-	pila.prim = (nodo*) malloc (sizeof(nodo));
+	test.prim = (nodo*) malloc (sizeof(nodo));
 	//uso la desreferencia para entrar al nodo recien creado 
 	//y en el espacio del apuntador prox le asigno p (que apunta al anterior tope)
-	pila.*prim.prox = p;
+	test.*prim.prox = p;
 	//inserto el valor a apilar en el nuevo nodo
-	pila.*prim.info = val
+	test.*prim.info = val;
 	//aumento el tamano indicado por pila.tamano
-	pila.tamano = pila.tamano+1;
+	test.tamano++;
 }
 
 void desapilar (pila test){
 	//declaro un apuntador p
 	struct node *p;
 	//apunto p a la direccion del nodo debajo del tope
-	p = pila.*prim.prox;
+	p = test.*prim.prox;
 	//hago que el nodo tope apunte a NULL
-	pila.*prim.prox = NULL;
+	test.*prim.prox = NULL;
 	//libero el espacio de memoria de este primer nodo, eliminando sus datos 
-	free (pila.*prim);
+	free (test.*prim);
 	//apunto el apuntador de la cabecera al nodo que estaba debajo del tope
-	pila.prim = p;
+	test.prim = p;
 	//reduzco el tamano indicado por pila.tamano
-	pila.tamano = pila.tamano-1;
+	pila.tamano--;
 }
 
 int desapilar_tope (pila test){
@@ -86,27 +86,27 @@ int desapilar_tope (pila test){
 	struct node *p;
 	int dato;
 	//guardo en la var dato la informacion del nodo tope
-	dato = pila.*prim.info;
+	dato = test.*prim.info;
 	//apunto p a la direccion del nodo debajo del tope
-	p = pila.*prim.prox;
+	p = test.*prim.prox;
 	//hago que el nodo tope apunte a NULL
-	pila.*prim.prox = NULL;
+	test.*prim.prox = NULL;
 	//libero el espacio de memoria de este primer nodo, eliminando sus datos 
-	free (pila.*prim);
+	free (test.*prim);
 	//apunto el apuntador de la cabecera al nodo que estaba debajo del tope
-	pila.prim = p;
+	test.prim = p;
 	//reduzco el tamano indicado por pila.tamano
-	pila.tamano = pila.tamano-1;
+	test.tamano--;
 	//retorno el valor del tope
 	return (dato);
 }
 
 int tope (pila test){
 	//retorno el valor del tope
-	return (pila.*prim.info);
+	return (test.*prim.info);
 }
 
 int longpila(pila test){
 	//retorno el valor guardado que indica el tamaño de la pila
-	return (pila.tamano);
+	return (test.tamano);
 }
