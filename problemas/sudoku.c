@@ -33,13 +33,13 @@ void sudoku_inicial ( ){
 
 
 void llenar_celdas ( int sudoku ){
-	bool safe
+	bool safe;
 	
 	while ( i!=21 && j!=21 && essol==0 ){
-		test_num (int sudoku, bool safe);
-		if ( es_seguro == 1 ){
+		testnum (int sudoku, bool safe);
+		if ( safe == 1 ){
 			//almacenar paso
-			if ( sudoku lleno == 1 ){
+			if ( sudoku_lleno == 1 ){
 				printmatriz ( int sudoku[][] );
 			}else{
 				llenar_celdas ();
@@ -51,8 +51,8 @@ void llenar_celdas ( int sudoku ){
 	}
 }
 
-int test_num ( int sudoku ){
-	 
+int testnum ( int sudoku, bool safe ){
+	
 }
 
 
