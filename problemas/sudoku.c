@@ -15,32 +15,46 @@ sector central, ni en la fila del sector externo al que pertenezca ni en la colu
 del sector al que pertenezca ni en ese mismo recuadro. Es decir en el caso de tomar la celda vacia en la posición [8][8]
 tomaremos en cuenta que el valor escogido no se repita en la fila [n][8], pero únicamente hata llegar a la posicion [15][8],
 tampoco deberá estar repetido en la columna [8][n], pero unicamente hasta llegar a la posicion [15][8] y asi sucesivamente 
-para los 4 recuadros compartidos
+para los 4 recuadros compartidos.
 */
 
 int main(){
+	int sudoku [21][21];
+	FILE *f;
+	sudoku_inicial ( int sudoku, FILE f );
+	llenar_celdas ( int sudoku );
+	return (0);
+}
+
+void sudoku_inicial ( ){
+	f = fopen ( "sudoku.txt", "r" );
 	
 }
 
-void llenar_celdas (){
+
+void llenar_celdas ( int sudoku ){
+	bool safe
 	
-	while ( /*existan alternativas*/ && essol==0 ){
-		/*probarcelda*/
+	while ( i!=21 && j!=21 && essol==0 ){
+		test_num (int sudoku, bool safe);
 		if ( es_seguro == 1 ){
-			sudoku [i][j] = ;
+			//almacenar paso
 			if ( sudoku lleno == 1 ){
-				printmatriz ( int sudoku );
+				printmatriz ( int sudoku[][] );
 			}else{
 				llenar_celdas ();
 				if ( essol==0 ){
-					sudoku [i][j] = 0
-					
+					//borrar paso
 				}
 			}
-				
 		}
 	}
 }
+
+int test_num ( int sudoku ){
+	 
+}
+
 
 /*proc buscar_una_solucion(T: paso) 
 inicio 
