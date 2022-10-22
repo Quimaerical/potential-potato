@@ -18,21 +18,12 @@ tampoco deberá estar repetido en la columna [8][n], pero unicamente hasta llega
 para los 4 recuadros compartidos.
 */
 
-int main(){
-	int sudoku [21][21];
-	FILE *f;
-	sudoku_inicial ( int sudoku, FILE f );
-	llenar_celdas ( int sudoku );
-	return (0);
-}
-
 void sudoku_inicial ( ){
 	f = fopen ( "sudoku.txt", "r" );
 	
 }
 
-
-void llenar_celdas ( int sudoku ){
+void llenar_celdas ( int sudoku, int i, int j ){
 	bool safe;
 	
 	while ( i!=21 && j!=21 && essol==0 ){
@@ -42,7 +33,7 @@ void llenar_celdas ( int sudoku ){
 			if ( sudoku_lleno == 1 ){
 				printmatriz ( int sudoku[][] );
 			}else{
-				llenar_celdas ();
+				llenar_celdas ( int sudoku, i, j);
 				if ( essol==0 ){
 					//borrar paso
 				}
@@ -54,7 +45,6 @@ void llenar_celdas ( int sudoku ){
 int testnum ( int sudoku, bool safe ){
 	
 }
-
 
 /*proc buscar_una_solucion(T: paso) 
 inicio 
@@ -75,3 +65,13 @@ inicio
   fsi 
  fmientras 
 fproc */
+
+
+int main(){
+	int sudoku [21][21];
+	FILE *f;
+	sudoku_inicial ( int sudoku, FILE f );
+	llenar_celdas ( int sudoku );
+	return (0);
+}
+
