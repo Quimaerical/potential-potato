@@ -123,23 +123,38 @@ int testnum ( int sudoku, bool safe, int i, int j ){
 	}
 	//9x9 der arriba
 	if ( ( i > 11 && j < 6 )&&( i > 14 && j < 9 ) ){
-		
+		for ( n = 1; n <= 9; n++ ){
+			
+			
+		}
 	}
 	//cuadricula de [12][6]
 	if ( ( i >= 12 && j >= 6 )&&( i <=14 && j <= 8 ) ){
-		
+		for ( n = 1; n <= 9; n++ ){
+			
+			
+		}
 	}
 	//9x9 der abajo
 	if ( ( i > 11 && j > 14 )&&( i > 14 && j > 11 ) ){
-		
+		for ( n = 1; n <= 9; n++ ){
+			
+			
+		}
 	}
 	//cuadricula de [12][12]
 	if ( ( i >= 12 && j >= 12 )&&( i <= 14 && j <= 14 ) ){
-		
+		for ( n = 1; n <= 9; n++ ){
+			
+			
+		}
 	}
 	//9x9 central
 	if ( ( i >= 6 && j <= 14 )&&( i <= 14 && j >= 6 ) ){
-		
+		for ( n = 1; n <= 9; n++ ){
+			
+			
+		}
 	}
 }
 
