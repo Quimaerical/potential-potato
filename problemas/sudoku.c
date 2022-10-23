@@ -19,32 +19,11 @@ para los 4 recuadros compartidos.
 */
 
 void sudoku_inicial ( ){
-	f = fopen ( "sudoku.txt", "r" );
+	//el archivo debe llamarse sudoku.md y cada elemento debe ser un 0, numero o espacio
+	f = fopen ( "sudoku.md", "r" );
 	
 }
 
-void llenar_celdas ( int sudoku, int i, int j ){
-	bool safe;
-	
-	while ( i!=21 && j!=21 && essol==0 ){
-		testnum (int sudoku, bool safe);
-		if ( safe == 1 ){
-			//almacenar paso
-			if ( sudoku_lleno == 1 ){
-				printmatriz ( int sudoku[][] );
-			}else{
-				llenar_celdas ( int sudoku, i, j);
-				if ( essol==0 ){
-					//borrar paso
-				}
-			}
-		}
-	}
-}
-
-int testnum ( int sudoku, bool safe ){
-	
-}
 
 /*proc buscar_una_solucion(T: paso) 
 inicio 
@@ -67,6 +46,103 @@ inicio
 fproc */
 
 
+void llenar_celdas ( int sudoku, int i, int j ){
+	bool safe;
+	
+	while (  && essol==0 ){
+		testnum ( sudoku, safe, i, j );
+		if ( safe == 1 ){
+			//almacenar paso
+			if ( sudoku_lleno == 1 ){
+				printmatriz ( sudoku );
+			}else{
+				llenar_celdas ( sudoku, i, j);
+				if ( essol == 0 ){
+					//borrar paso
+				}
+			}
+		}
+	}
+}
+
+int testnum ( int sudoku, bool safe, int i, int j ){
+	int col;
+	int fil;
+	int n;
+	//9x9 izq arriba
+	if ( ( i < 6 && j < 9 )&&( i < 9 && j < 6 ) ){
+		for ( n = 1; n <= 9; n++ ){
+			
+			for ( col = 0; col < 9; col++ ){
+				for ( fil = 0; fil < 9; fil++ ){
+					if ( sudoku[col][fil] != n ){
+						return (n);
+					}
+				}
+			}
+		}
+	}
+	//cuadricula de [6][6]
+	if ( ( i >= 6 && j >= 6 )&&( i <= 8 && j <= 8 ) ){
+		for ( n = 1; n <= 9; n++ ){
+			
+			for ( col = 0; col < 15; col++ ){
+				for ( fil = 0; fil < 15; fil++ ){
+					if ( sudoku[col][fil] != n ){
+						return (n);
+					}
+				}
+			}
+		}
+	}
+	//9x9 izq abajo
+	if ( ( i < 6 && j > 11 )&&( i < 9 && j > 14 ){
+		for ( n = 1; n <= 9; n++ ){
+			
+			for ( col = 0; col < 9; col++ ){
+				for ( fil = 12; fil <= 20; fil++ ){
+					if ( sudoku[col][fil] != n ){
+						return (n);
+					}
+				}
+			}
+		}
+	}
+	//cuadricula de [6][12]
+	if ( ( i >= 6 && j >= 12 )&&( i <= 8 && j <= 14 ) ){
+		for ( n = 1; n <= 9; n++ ){
+			
+			for ( col = 0; col < 15; col++ ){
+				for ( fil = 6; fil < 21; fil++ ){
+					if ( sudoku[col][fil] != n ){
+						return (n);
+					}
+				}
+			}
+		}
+	}
+	//9x9 der arriba
+	if ( ( i > 11 && j < 6 )&&( i > 14 && j < 9 ) ){
+		
+	}
+	//cuadricula de [12][6]
+	if ( ( i >= 12 && j >= 6 )&&( i <=14 && j <= 8 ) ){
+		
+	}
+	//9x9 der abajo
+	if ( ( i > 11 && j > 14 )&&( i > 14 && j > 11 ) ){
+		
+	}
+	//cuadricula de [12][12]
+	if ( ( i >= 12 && j >= 12 )&&( i <= 14 && j <= 14 ) ){
+		
+	}
+	//9x9 central
+	if ( ( i >= 6 && j <= 14 )&&( i <= 14 && j >= 6 ) ){
+		
+	}
+}
+
 int main(){
 	int sudoku [21][21];
 	FILE *f;
@@ -74,4 +150,3 @@ int main(){
 	llenar_celdas ( int sudoku );
 	return (0);
 }
-
