@@ -1,6 +1,8 @@
 /* pila.h cabecera */
 #include <stdio.h>
 #include <stdlib.h>
+#ifndef "_LIB_PILA_H_"
+#define "_LIB_PILA_H_"
 
 //defino la estructura del nodo 
 typedef struct node {
@@ -9,7 +11,7 @@ typedef struct node {
 }nodo;
 
 //defino la estructura de la cabecera de la pila
-typedef struct pila{
+typedef struct Pila{
   struct node *prim;
   int tamano;
 }pila;
@@ -55,7 +57,7 @@ void apilar (int val, pila test){
 	//declaro un apuntador p para no perder la ubicacion del primer nodo
 	struct node *p;
 	p = pila test->prim;
-	//le asigno al apuntador en pila.prim un nodo vacio
+	//le asigno al apuntador en pila->prim un nodo vacio
 	pila test->prim = (nodo*) malloc (sizeof(nodo));
 	//uso la desreferencia para entrar al nodo recien creado 
 	//y en el espacio del apuntador prox le asigno p (que apunta al anterior tope)
@@ -94,7 +96,7 @@ int desapilar_tope (pila test){
 	//libero el espacio de memoria de este primer nodo, eliminando sus datos 
 	free (nodo test->*prim);
 	//apunto el apuntador de la cabecera al nodo que estaba debajo del tope
-	pila test.prim = p;
+	pila test->prim = p;
 	//reduzco el tamano indicado por pila.tamano
 	pila test.tamano--;
 	//retorno el valor del tope
@@ -103,10 +105,12 @@ int desapilar_tope (pila test){
 
 int tope (pila test){
 	//retorno el valor del tope
-	return (pila test.*prim.info);
+	return (pila test->*prim->info);
 }
 
 int longpila(pila test){
 	//retorno el valor guardado que indica el tamaño de la pila
 	return (pila test.tamano);
 }
+
+#endif
